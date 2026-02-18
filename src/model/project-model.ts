@@ -8,7 +8,6 @@ export interface IProject {
   amount: number;
   installments: number;
   gst?: number;
-  tax?: number;
   createdBy: string;
 }
 
@@ -39,10 +38,6 @@ const projectSchema = new Schema(
       required: true,
     },
     gst: {
-      type: Number,
-      default: 0,
-    },
-    tax: {
       type: Number,
       default: 0,
     },

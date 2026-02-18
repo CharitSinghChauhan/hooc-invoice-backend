@@ -1,6 +1,7 @@
 import express, { type Request, type Response } from "express";
 import authRouter from "./routes/auth-route";
 import adminRouter from "./routes/admin-route";
+import invoiceRouter from "./routes/invoice-route";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import { env } from "./config/env-config";
@@ -18,13 +19,9 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  console.log("/ hey i am inside the server");
-  res.json("ok");
-});
-
 app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/invoices", invoiceRouter);
 
 app.use(errorMiddleware);
 
